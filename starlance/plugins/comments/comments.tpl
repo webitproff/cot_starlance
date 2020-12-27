@@ -55,15 +55,6 @@
 <!-- END: COMMENTS_FORM_EDIT -->
 <!-- END: MAIN -->
 <!-- BEGIN: COMMENTS -->
-<!-- IF {PHP.usr.maingrp} == 5 -->
-		<div class="tm-timeout" data-timeout="5000">
-			<div class="uk-alert uk-visible@m" uk-alert>
-				<a class="uk-alert-close" uk-close></a>
-				<h4 class="uk-heading-bullet"><span class="uk-text-bold uk-text-warning">Информация для Администратора</span></h4>
-				<p>Этот шаблон находится по адресу<br><code>/themes/starlance/plugins/comments/comments.tpl</code><br></p>
-			</div>
-		</div>
-<!-- ENDIF -->
 		<a name="comments"></a>
 		<div <!-- IF {COMMENTS_DISPLAY} == 'none' -->style="display:none;"<!-- ENDIF -->>
 		<!-- BEGIN: COMMENTS_ROW -->
