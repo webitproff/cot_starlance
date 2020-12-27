@@ -1,23 +1,19 @@
-{FILE "{PHP.cfg.themes_dir}/{PHP.usr.theme}/warnings.tpl"}
 <!-- BEGIN: MAIN -->
-
+{FILE "{PHP.cfg.themes_dir}/{PHP.usr.theme}/warnings.tpl"}
 <!-- BEGIN: COMMENTS_TITLE -->
 <div class="uk-section uk-padding-remove-vertical uk-background-primary uk-visible@m">
 	<div class="uk-container uk-padding-small uk-link-text">
 		<ul class="uk-breadcrumb">
             <li><a href="{PHP.cfg.mainurl}">{PHP.L.Home}</a></li>
-			<li><span class="comments">Правка коммента</span></li>
+			<li><span class="uk-text-bold uk-text-warning comments">Правка коммента</span></li>
 		</ul>
 	</div>
 </div>
 <!-- END: COMMENTS_TITLE -->
-			
 <!-- BEGIN: COMMENTS_FORM_EDIT -->
 <div class="uk-section uk-background-muted">
 	<div class="uk-container">
 		<div class="uk-card uk-card-default uk-card-body">
-		
-		
 		<form class="uk-form-stacked uk-margin-small" id="comments" name="comments" action="{COMMENTS_FORM_POST}" method="post">
 			<div class="uk-margin">
 				<label class="uk-form-label">{COMMENTS_POSTER_TITLE}:</label>
@@ -43,32 +39,32 @@
 					{COMMENTS_FORM_TEXT}
 				</div>
 			</div>
-				<table class="cells">
-
-					<tr>
-						<td colspan="2">
-							
-							<!-- IF {COMMENTS_FORM_PFS} -->{COMMENTS_FORM_PFS}<!-- ENDIF -->
-							<!-- IF {COMMENTS_FORM_SFS} --><span class="spaced">{PHP.cfg.separator}</span>{COMMENTS_FORM_SFS}<!-- ENDIF -->
-						</td>
-					</tr>
-
-				</table>
+			<!-- IF {PHP.cot_modules.pfs} -->
+			<div class="uk-margin">
+				<!-- IF {COMMENTS_FORM_PFS} -->{COMMENTS_FORM_PFS}<!-- ENDIF -->
+				<!-- IF {COMMENTS_FORM_SFS} --><span class="spaced">{PHP.cfg.separator}</span>{COMMENTS_FORM_SFS}<!-- ENDIF -->
+			</div>
+			<!-- ENDIF -->
 			<div class="uk-margin uk-text-center">
-				<button type="submit" value="{COMMENTS_FORM_UPDATE_BUTTON}" class="submit uk-button uk-button-success" type="submit">{PHP.L.Edit}</button>
+				<button type="submit" value="{COMMENTS_FORM_UPDATE_BUTTON}" class="submit uk-button uk-button-warning" type="submit">{PHP.L.Edit}</button>
 			</div>
 			</form>
 		</div>
 	</div>
 </div>
 <!-- END: COMMENTS_FORM_EDIT -->
-		
 <!-- END: MAIN -->
-
 <!-- BEGIN: COMMENTS -->
-
+<!-- IF {PHP.usr.maingrp} == 5 -->
+		<div class="tm-timeout" data-timeout="5000">
+			<div class="uk-alert uk-visible@m" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<h4 class="uk-heading-bullet"><span class="uk-text-bold uk-text-warning">Информация для Администратора</span></h4>
+				<p>Этот шаблон находится по адресу<br><code>/themes/starlance/plugins/comments/comments.tpl</code><br></p>
+			</div>
+		</div>
+<!-- ENDIF -->
 		<a name="comments"></a>
-
 		<div <!-- IF {COMMENTS_DISPLAY} == 'none' -->style="display:none;"<!-- ENDIF -->>
 		<!-- BEGIN: COMMENTS_ROW -->
 		<article class="uk-comment uk-margin-bottom">
@@ -99,14 +95,12 @@
 		</article>
 	</div>
 		<!-- END: COMMENTS_ROW -->
-
 <!-- BEGIN: PAGNAVIGATOR -->
 				<!-- IF {COMMENTS_PAGES_PAGNAV} -->
 				<p>{COMMENTS_PAGES_PAGESPREV}{COMMENTS_PAGES_PAGNAV}{COMMENTS_PAGES_PAGESNEXT}</p>
 				<p><span>{COMMENTS_PAGES_INFO}</span></p>
 				<!-- ENDIF -->
 <!-- END: PAGNAVIGATOR -->
-		
 		<!-- BEGIN: COMMENTS_NEWCOMMENT -->
 		<div class="uk-panel uk-background-default uk-padding-small">
 		<h4 class="comments">{PHP.L.Newcomment}</h4>
@@ -153,21 +147,16 @@
 		</div>
 		</div>
 		<!-- END: COMMENTS_NEWCOMMENT -->
-
 		<!-- BEGIN: COMMENTS_EMPTY -->
 		<div uk-alert>
 			<a class="uk-alert-close" uk-close></a>
 			{COMMENTS_EMPTYTEXT}
 		</div>
 		<!-- END: COMMENTS_EMPTY -->
-
 		<!-- BEGIN: COMMENTS_CLOSED -->
 		<div class="uk-alert-danger" uk-alert>
 			<a class="uk-alert-close" uk-close></a>
 			{COMMENTS_CLOSED}
 		</div>
 		<!-- END: COMMENTS_CLOSED -->
-		
-		
-
 <!-- END: COMMENTS -->
