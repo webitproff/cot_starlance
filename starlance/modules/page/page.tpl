@@ -47,6 +47,40 @@
 	<div class="uk-container">
 		<div class="uk-grid-small" uk-grid>
 			<div class="uk-width-3-4@m">
+			<!-- IF {PHP.cot_plugins_active.comments} -->
+				<div class="uk-card uk-margin-small uk-border-rounded">
+					<h1 class="uk-heading-line uk-text-center"><span>{PHP.L.comments_comments}: {PAGE_COMMENTS_COUNT}</span></h1>
+					<div>{PAGE_COMMENTS_DISPLAY}</div>		
+				</div>
+			<!-- ENDIF -->
+			</div>
+			<div class="uk-width-1-4@m">
+<!-- IF {PHP.cot_plugins_active.tags} -->
+				<div class="uk-card uk-card-body uk-card-small uk-background-default uk-margin-small uk-border-rounded">
+				<span class="uk-text-secondary">{PHP.L.Tags}:</span>
+<!-- BEGIN: PAGE_TAGS_ROW -->
+<!-- IF {PHP.tag_i} > 0 -->, <!-- ENDIF --><a href="{PAGE_TAGS_ROW_URL}" title="{PAGE_TAGS_ROW_TAG}" rel="nofollow">{PAGE_TAGS_ROW_TAG}</a>
+<!-- END: PAGE_TAGS_ROW -->
+<!-- BEGIN: PAGE_NO_TAGS -->
+{PAGE_NO_TAGS}
+<!-- END: PAGE_NO_TAGS -->
+				</div>
+<!-- ENDIF -->
+			</div>
+		</div>
+<!-- BEGIN: PAGE_MULTI -->
+			<div>
+				<h2 class="info">{PHP.L.Summary}:</h2>
+				{PAGE_MULTI_TABTITLES}
+				<p class="paging">{PAGE_MULTI_TABNAV}</p>
+			</div>
+<!-- END: PAGE_MULTI -->
+	</div>
+</div>
+<!-- END: MAIN -->
+	<div class="uk-container">
+		<div class="uk-grid-small" uk-grid>
+			<div class="uk-width-3-4@m">
 				<div class="uk-card uk-margin-small uk-border-rounded">
 					<div>{PAGE_COMMENTS_DISPLAY}</div>		
 				</div>
